@@ -8,7 +8,9 @@ import { createStore } from "redux";
   const initial = {
     player1: 0,
     player2: 0,
-  };
+    serving: 1,
+  };  
+  
 //dispatching the action 
   const reducer = (state, action ) => {
     switch (action.type) {
@@ -35,6 +37,7 @@ import { createStore } from "redux";
         <App 
           player1={ state.player1 } 
           player2={ state.player2 }
+          serving={ state.serving }
           handlePlayer1={ () => store.dispatch( { type: "PLAYER1_SCORES" } ) } 
           handlePlayer2={ () => store.dispatch( { type: "PLAYER2_SCORES" } ) }
           handleReset={ () => store.dispatch( { type: "RESET" } ) }
@@ -52,6 +55,7 @@ import { createStore } from "redux";
   // store.dispatch( { type: "PLAYER1_SCORES" })
   // store.dispatch( { type: "PLAYER2_SCORES" })
   
+  //i am telling it to do that every time state changes 
   store.subscribe(render); // re-render when state changes
   render();
 // If you want your app to work offline and load faster, you can change
