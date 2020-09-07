@@ -3,7 +3,10 @@ import React from "react";
 const App = (
   { 
     player1, 
-    player2
+    player2,
+    handlePlayer1,
+    handlePlayer2,
+    handleReset,
   }
   ) => (
     <React.Fragment>
@@ -45,7 +48,9 @@ const App = (
         <hr />
 
         { /* reset button */}
-        <button className="btn btn-danger">Reset</button>
+        <button 
+          className="btn btn-danger"
+          onClick= { handleReset }>Reset</button>
         
     </React.Fragment>
 );

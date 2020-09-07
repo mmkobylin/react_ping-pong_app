@@ -13,6 +13,8 @@ import { createStore } from "redux";
   const reducer = (state, action ) => {
     switch (action.type) {
       case "PLAYER1_SCORES": return { ...state, player1: state.player1 + 1 }
+      case "PLAYER2_SCORES": return { ...state, player2: state.player2 + 1 }
+      case "RESET" : return initial;
       default: return state;
     }
   }
@@ -31,7 +33,10 @@ import { createStore } from "redux";
       <React.StrictMode>
         <App player1 = { state.player1 } player2 = { state.player2 }
         count = { state.count }
-        handleIncrement = { () => store.dispatch( { type: "PLAYER1_SCORES" } ) } />
+        handlePlayer1 = { () => store.dispatch( { type: "PLAYER1_SCORES" } ) } 
+        handlePlayer2 = { () => store.dispatch( { type: "PLAYER2_SCORES" } ) }
+        handleReset = { () => store.dispatch( { type: "RESET" } ) }
+        />
       </React.StrictMode>,
       document.getElementById('root')
     );
@@ -39,11 +44,11 @@ import { createStore } from "redux";
 
   store.subscribe(() => {
     let state = store.getState();
-    console.log(state.player2)
+    console.log(state.player1, state.player2)
   });
 
   store.dispatch( { type: "PLAYER1_SCORES" })
-  store.dispatch( { type: "PLAYER1_SCORES" })
+  store.dispatch( { type: "PLAYER2_SCORES" })
 
   render();
 // If you want your app to work offline and load faster, you can change
