@@ -1,19 +1,14 @@
 import React from "react";
 
 const App = (
-  { 
-    player1, 
-    player2,
-    handlePlayer1,
-    handlePlayer2,
-    handleReset,
-  }
+    { player1, player2, handlePlayer1, handlePlayer2, handleReset }
   ) => (
     <React.Fragment>
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
             <h1>PongPing</h1>
         </header>
+    { console.log(player1) } 
 
         {/* scores */}
         <div className="row mb-4">
@@ -24,7 +19,9 @@ const App = (
                         <p className="card-text display-1">{ player1 }</p>
                     </div>
                     <div className="card-footer">
-                        <button className="form-control btn btn-success">+</button>
+                        <button 
+                          onClick= { handlePlayer1 }
+                          className="form-control btn btn-success">+</button>
                     </div>
                 </div>
             </div>
@@ -36,7 +33,9 @@ const App = (
                         <p className="card-text display-1">{ player2 }</p>
                     </div>
                     <div className="card-footer">
-                        <button className="form-control btn btn-success">+</button>
+                        <button 
+                          onClick= { handlePlayer2 }
+                          className="form-control btn btn-success">+</button>
                     </div>
                 </div>
             </div>
