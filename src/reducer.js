@@ -1,7 +1,8 @@
 import './index.css';
 import initial from './initial';
 
-//here goes everything what went to INDEX PREVIOUSLY, ALL THE FUNCTIONS 
+//here goes everything what went to 
+//INDEX PREVIOUSLY, ALL THE FUNCTIONS 
 
   //helper function 
   const player1scores = (state) => {

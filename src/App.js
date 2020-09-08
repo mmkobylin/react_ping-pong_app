@@ -34,6 +34,7 @@ const App = (
                     <div className="card-footer">
                         <button 
                           onClick= { handlePlayer1 }
+                          disabled= { player1 === 21 }
                           className="form-control btn btn-success">+</button>
                     </div>
                 </div>
@@ -49,6 +50,7 @@ const App = (
                     <div className="card-footer">
                         <button 
                           onClick= { handlePlayer2 }
+                          disabled= { player2 === 21 }
                           className="form-control btn btn-success">+</button>
                     </div>
                 </div>
