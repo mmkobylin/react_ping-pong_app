@@ -46,6 +46,7 @@ import store from './store';
           serving={ state.serving }
           winning={ state.winning }
           winner={ state.winner }
+          difference={ state.difference }
 
           handlePlayer1={ () => store.dispatch( { type: "PLAYER1_SCORES" } ) } 
           handlePlayer2={ () => store.dispatch( { type: "PLAYER2_SCORES" } ) }

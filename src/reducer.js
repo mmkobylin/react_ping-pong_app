@@ -19,6 +19,8 @@ import initial from './initial';
     }
   }
 
+//  The server should start to alternate every two serves if both scores get to 20
+
   const server = state => {
     return {
       ...state,
@@ -39,10 +41,14 @@ const winning = state => state.player1 === 21 || state.player2 === 21;
 //who is winning? 
 const getWinner = state => state.player1 > state.player2 ? 1 : 2; 
 
+const difference = state => 
+  (Math.abs(state.player1 - state.player2) >= 2);
+
+
 const winner = state => ({ 
   ...state,
   //this is where we get winner:  
-  winner: winning(state) ? getWinner(state) : null ,
+  winner: difference(state) && winning(state) ? getWinner(state) : null ,
 })
 
 //dispatching the action 
