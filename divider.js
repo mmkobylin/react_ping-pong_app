@@ -5,11 +5,8 @@ const divider = values => {
 
     for ( i = 0; i < values.length; i += 1) {
 
-        if (values[i] % 5 === 4) {
-
-            results.push(values[i])
+            results.push(Math.floor((values[i] / 5 % 2 )));
         };
-    }
     return results;
 };
 
