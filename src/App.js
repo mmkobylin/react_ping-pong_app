@@ -45,6 +45,8 @@ const App = (
                     <div className="card-body">
                         <p className="card-text display-1">{ player2 }</p>
                     </div>
+                    {/* this is where i put winner logic */}
+                 
                     <div className="card-footer">
                         <button 
                           onClick= { handlePlayer2 }
@@ -56,8 +58,11 @@ const App = (
         </div>
 
         { /* winner message */}
+        {/* open brakets */}
+        { winner ? (
         <h2 className="alert alert-success">Player { winner } wins!</h2>
-
+        ) : null 
+      }
         <hr />
 
         { /* reset button */}

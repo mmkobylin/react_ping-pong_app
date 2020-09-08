@@ -45,6 +45,8 @@ import store from './store';
           player2={ state.player2 }
           serving={ state.serving }
           winning={ state.winning }
+          winner={ state.winner }
+
           handlePlayer1={ () => store.dispatch( { type: "PLAYER1_SCORES" } ) } 
           handlePlayer2={ () => store.dispatch( { type: "PLAYER2_SCORES" } ) }
           handleReset={ () => store.dispatch( { type: "RESET" } ) }

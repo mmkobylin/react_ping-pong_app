@@ -37,12 +37,12 @@ import initial from './initial';
 const winning = state => state.player1 === 21 || state.player2 === 21; 
 
 //who is winning? 
-const getWinner = state => state.player1 > state.player2 ? 1 : 0; 
+const getWinner = state => state.player1 > state.player2 ? 1 : 2; 
 
 const winner = state => ({ 
   ...state,
   //this is where we get winner:  
-  winner: winning(state) ? getWinner(state) : getWinner(state),
+  winner: winning(state) ? getWinner(state) : null ,
 })
 
 //dispatching the action 
