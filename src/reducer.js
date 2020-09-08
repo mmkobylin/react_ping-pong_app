@@ -42,7 +42,7 @@ const getWinner = state => state.player1 > state.player2 ? 1 : 0;
 const winner = state => ({ 
   ...state,
   //this is where we get winner:  
-  winner: winning(state) ? getWinner(state) : null 
+  winner: winning(state) ? getWinner(state) : getWinner(state),
 })
 
 //dispatching the action 

@@ -1,7 +1,5 @@
 import React from "react";
 
-const winning = state => state.player1 === 21 || state.player2 === 21;
-
 const App = (
     { 
       player1, 
@@ -34,7 +32,7 @@ const App = (
                     <div className="card-footer">
                         <button 
                           onClick= { handlePlayer1 }
-                          disabled= { player1 === 21 }
+                          disabled= { player1 === 21 || player2 === 21 }
                           className="form-control btn btn-success">+</button>
                     </div>
                 </div>
@@ -50,7 +48,7 @@ const App = (
                     <div className="card-footer">
                         <button 
                           onClick= { handlePlayer2 }
-                          disabled= { player2 === 21 }
+                          disabled= { player2 === 21 || player1 === 21 }
                           className="form-control btn btn-success">+</button>
                     </div>
                 </div>
