@@ -7,7 +7,8 @@ const App = (
       handlePlayer1,
       handlePlayer2,
       handleReset,
-      serving,      
+      serving,  
+      winning,    
 
     }
   ) => (
@@ -52,7 +53,7 @@ const App = (
         </div>
 
         { /* winner message */}
-        <h2 className="alert alert-success">Player {/* winning player here */} wins!</h2>
+        <h2 className="alert alert-success">Player { winning } wins!</h2>
 
         <hr />
 
