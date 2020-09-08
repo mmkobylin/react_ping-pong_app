@@ -1,6 +1,7 @@
 import './index.css';
-
-//add action and event handler; 
+import { createStore } from "redux";
+import initial from './initial';
+import reducer from './reducer';
 
 const store = createStore(
     reducer,

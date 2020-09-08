@@ -1,5 +1,7 @@
 import React from "react";
 
+const winning = state => state.player1 === 21 || state.player2 === 21;
+
 const App = (
     { 
       player1, 
@@ -8,7 +10,8 @@ const App = (
       handlePlayer2,
       handleReset,
       serving,  
-      winning,    
+      winning,  
+      winner  
 
     }
   ) => (
@@ -53,7 +56,7 @@ const App = (
         </div>
 
         { /* winner message */}
-        <h2 className="alert alert-success">Player { winning } wins!</h2>
+        <h2 className="alert alert-success">Player { winner } wins!</h2>
 
         <hr />
 

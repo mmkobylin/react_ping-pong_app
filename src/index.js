@@ -3,61 +3,33 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from "redux";
+import store from './store';
+//now when you took away one, the message will tell you what else to take 
+// import initial from './initial';
+// import reducer from './reducer';
 
-  const initial = {
-    player1: 0,
-    player2: 0,
-    serving: 1,
-  };  
-  //helper function 
-  const player1scores = (state) => {
-    return {
-        ...state,
-        player1: state.player1 + 1
-    }
-  }
+// import { createStore } from "redux";
 
-  const player2scores = (state) => {
-    return {
-        ...state,
-        player2: state.player2 + 1
-    }
-  }
+//ALL WHAT IS LEFT HERE IS RENDER
 
 
-  const server = ( state, action ) => {
-    return {
-      ...state,
-      serving: Math.floor((state.player1 + state.player2)/5) % 2 === 0 ? 1 : 2
-    }
-  }
-
-  // i always want to take into functions state or action 
-//they return functions
-
-
-
-//dispatching the action 
-  const reducer = (state, action ) => {
-    switch (action.type) {
-      case "PLAYER1_SCORES": return server(player1scores(state));
-      case "PLAYER2_SCORES": return server(player2scores(state));
-      case "RESET" : return initial;
-      default: return state;
-    }
-  }
+// //dispatching the action 
+//   const reducer = (state, action ) => {
+//     switch (action.type) {
+//                       //keep adding functions!!!
+//       case "PLAYER1_SCORES": return winner(server(player1scores(state)));
+//       case "PLAYER2_SCORES": return winner(server(player2scores(state)));
+//       case "RESET" : return initial;
+//       default: return state;
+//     }
+//   }
 //add action and event handler; 
-  const store = createStore(
-    reducer,
-    initial,
-    window.__REDUX_DEVTOOLS_EXTENSION__
-    && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    );
-
-    const win = 21; 
-
-    const winning = (state) => state.player1 >= win || state.player2 >= win;
+  // const store = createStore(
+  //   reducer,
+  //   initial,
+  //   window.__REDUX_DEVTOOLS_EXTENSION__
+  //   && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  //   );
 
 
 //called whenever the state changes 
@@ -72,6 +44,7 @@ import { createStore } from "redux";
           player1={ state.player1 } 
           player2={ state.player2 }
           serving={ state.serving }
+          winning={ state.winning }
           handlePlayer1={ () => store.dispatch( { type: "PLAYER1_SCORES" } ) } 
           handlePlayer2={ () => store.dispatch( { type: "PLAYER2_SCORES" } ) }
           handleReset={ () => store.dispatch( { type: "RESET" } ) }
