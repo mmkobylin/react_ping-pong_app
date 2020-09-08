@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import store from './store';
+import { Provider } from "react-redux";
+
+
 //now when you took away one, the message will tell you what else to take 
 // import initial from './initial';
 // import reducer from './reducer';
@@ -40,18 +43,19 @@ import store from './store';
 
     ReactDOM.render(
       <React.StrictMode>
-        <App 
-          player1={ state.player1 } 
-          player2={ state.player2 }
-          serving={ state.serving }
-          winning={ state.winning }
-          winner={ state.winner }
-          difference={ state.difference }
+        <Provider store={ store }>
+          <App 
+            player1={ state.player1 } 
+            player2={ state.player2 }
+            serving={ state.serving }
+            winner={ state.winner }
+            difference={ state.difference }
 
-          handlePlayer1={ () => store.dispatch( { type: "PLAYER1_SCORES" } ) } 
-          handlePlayer2={ () => store.dispatch( { type: "PLAYER2_SCORES" } ) }
-          handleReset={ () => store.dispatch( { type: "RESET" } ) }
-        />
+            handlePlayer1={ () => store.dispatch( { type: "PLAYER1_SCORES" } ) } 
+            handlePlayer2={ () => store.dispatch( { type: "PLAYER2_SCORES" } ) }
+            handleReset={ () => store.dispatch( { type: "RESET" } ) }
+          />
+        </Provider>
       </React.StrictMode>,
       document.getElementById('root')
     );

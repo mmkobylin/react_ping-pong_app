@@ -21,10 +21,13 @@ import initial from './initial';
 
 //  The server should start to alternate every two serves if both scores get to 20
 
+
+const alternate = state => (state.player1 === 20 && state.player2 === 20) ? 2 : 5;
+
   const server = state => {
     return {
       ...state,
-      serving: Math.floor((state.player1 + state.player2)/5) % 2 === 0 ? 1 : 2
+      serving: (Math.floor((state.player1 + state.player2)/alternate(state)) % 2) + 1 
       // dodajemy obie wartosci, dzielimy na 2. np. 3+ 4 = 7 / 5
       // module przez dwa, i dopiero wtedy //math.floor is zaokragla wartosc; 
       //sprawdz divider; jesli nie do zera, to zostaje serwowac 2. 
@@ -43,7 +46,6 @@ const getWinner = state => state.player1 > state.player2 ? 1 : 2;
 
 const difference = state => 
   (Math.abs(state.player1 - state.player2) >= 2);
-
 
 const winner = state => ({ 
   ...state,
