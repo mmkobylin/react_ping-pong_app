@@ -8,3 +8,4 @@ const mapStateToProps = ( state ) => {
 };
 
 export default connect(mapStateToProps)(Winner); 
+//copy and paste because it is the same 

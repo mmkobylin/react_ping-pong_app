@@ -1,10 +1,11 @@
 import { connect } from "react-redux"; 
 import Reset from "./Reset";
+import { reset } from "../../Actions/reset";
 
-const mapStateToProps = ( { state } ) => {
+const mapDispatchToProps = dispatch => {
     return {
-        "Reset": state.Reset,
-    }
-};
+    handleReset: () => dispatch(reset()),
+    };
+}
 
-export default connect(mapStateToProps)(Reset); 
+export default connect(null, mapDispatchToProps)(Reset); 

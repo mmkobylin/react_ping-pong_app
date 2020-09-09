@@ -1,20 +1,15 @@
 import React from "react";
 import Header from "./components/Header"
-import Player from "./components/Player/Player"
-import Winner from "./components/Winner/index"
-import Reset from "./components/Reset/index"
-
-// import Header from "./components/Header"
+import Player1 from "./components/Player/Player1"
+import Player2 from "./components/Player/Player2"
+import Winner from "./components/Winner"
+import Reset from "./components/Reset"
 
 const App = (
     { 
-      player1, 
-      player2, 
       handlePlayer1,
       handlePlayer2,
       handleReset,
-      serving,  
-      winner,
     }
   ) => (
     <React.Fragment>
@@ -23,20 +18,12 @@ const App = (
         {/* scores */}
         <div className="row mb-4">
 
-          <Player 
+          <Player1
             handlePlayer={ handlePlayer1 } 
-            playerScore={ player1 } 
-            serving={ serving } 
-            winner={ winner }
-            player={ 1 }
           />
 
-          <Player
-            handlePlayer={ handlePlayer2} 
-            playerScore={ player2 } 
-            serving={ serving } 
-            winner={ winner }
-            player={ 2 }
+          <Player2
+            handlePlayer={ handlePlayer2 } 
           />
 
         </div>
@@ -51,7 +38,7 @@ const App = (
         <hr />
 
         { /* reset button */}
-        {/* <Reset handleReset={ handleReset }/> */}
+        <Reset handleReset={ handleReset }/>
         
     </React.Fragment>
 );
