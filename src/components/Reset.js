@@ -1,13 +1,13 @@
-import React from "react";
+// import React from "react";
 
-const Reset = ({
-    handleReset
-    }) => (
-        <button 
-            className="btn btn-danger"
-            onClick= { handleReset }> 
-                Reset
-        </button>
-    )
+// const Reset = ({
+//     handleReset
+//     }) => (
+//         <button 
+//             className="btn btn-danger"
+//             onClick= { handleReset }> 
+//                 Reset
+//         </button>
+//     )
 
-export default Reset;
+// export default Reset;

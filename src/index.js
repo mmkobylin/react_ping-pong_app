@@ -4,14 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import store from './store';
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
 // import { createStore } from 'redux';
 // import initial from './initial';
 //now when you took away one, the message will tell you what else to take 
 
-
 //ALL WHAT IS LEFT HERE IS RENDER
-
 
 // //dispatching the action 
 //   const reducer = (state, action ) => {
@@ -33,35 +31,31 @@ import { Provider } from "react-redux";
 
 
 //called whenever the state changes 
-  // const render = () => {
+  const render = () => {
 
-let { player1, player2, serving, winner, difference} = store.getState();
+let state = store.getState();
 
 ReactDOM.render(
-  <React.StrictMode>
     <Provider store={ store }>
       <App 
-        player1={ player1 } 
-        player2={ player2 }
-        serving={ serving }
-        winner={ winner }
-        difference={ difference }
+        player1={ state.player1 } 
+        player2={ state.player2 }
+        serving={ state.serving }
+        winner={ state.winner }
+        difference={ state.difference }
 
         handlePlayer1={ () => store.dispatch( { type: "PLAYER1_SCORES" } ) } 
         handlePlayer2={ () => store.dispatch( { type: "PLAYER2_SCORES" } ) }
         handleReset={ () => store.dispatch( { type: "RESET" } ) }
       />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    </Provider>, 
+  document.getElementById('root'), 
 );
-  // }
+  }
 
   //we dont want it all rerendering 
-   // store.subscribe(render); // re-render when state changes
-  // render();
-
-
+   store.subscribe(render); // re-render when state changes
+  render();
 
   // store.subscribe(() => {
   //   let state = store.getState();

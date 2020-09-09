@@ -1,8 +1,9 @@
 import React from "react";
 import Header from "./components/Header"
-import Reset from "./components/Reset"
 import Player from "./components/Player/Player"
-import Winner from "./components/Winner/Winner"
+import Winner from "./components/Winner/index"
+import Reset from "./components/Reset/index"
+
 // import Header from "./components/Header"
 
 const App = (
@@ -50,7 +51,7 @@ const App = (
         <hr />
 
         { /* reset button */}
-        <Reset handleReset={ handleReset }/>
+        {/* <Reset handleReset={ handleReset }/> */}
         
     </React.Fragment>
 );
