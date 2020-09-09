@@ -6,14 +6,30 @@ class Settings extends Component {
         super(props);
 
          this.state = { 
-             step: props.step, 
+             player: props.player, 
         };
         
-        this.handleChange = this.handleChange.bind(this), 
+        this.handlePlayer1 = this.handlePlayer1.bind(this), 
+        this.handlePlayer2 = this.handlePlayer2.bind(this), 
+        this.handleWinner = this.handleWinner.bind(this), 
+        this.handleServing = this.handleServing.bind(this), 
+
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     
-    handleChange(e) {
+    handlePlayer1(e) {
+        this.setState({ step: e.currentTarget.value }) ; 
+    }
+       
+    handlePlayer2(e) {
+        this.setState({ step: e.currentTarget.value }) ; 
+    }
+
+    handleWinner(e) {
+        this.setState({ step: e.currentTarget.value }) ; 
+    }
+       
+    handleServing(e) {
         this.setState({ step: e.currentTarget.value }) ; 
     }
 
@@ -22,17 +38,44 @@ class Settings extends Component {
     }
 
     render() {
-        let { step } = this.state; 
+        let { player1, player2, winner, serving } = this.state; 
 
         return (
             <form onSubmit={ this.handleSubmit }>
                 <div className="form-group">
-                    <label>Step</label>
+                    <label>Player 1 Name</label>
                     <input
                         className="form-control"
-                        onChange={ this.handleChange }
-                        value={ step }
+                        onChange={ this.handlePlayer1 }
+                        value={ player1 }
                     />
+
+                    <label>Player 2 Name</label>
+                    <input
+                        className="form-control"
+                        onChange={ this.handlePlayer2 }
+                        value={ player2 }
+                    />
+
+                    <label>Winning Score</label>
+                    <input
+                        className="form-control"
+                        onChange={ this.handleWinner }
+                        placeholder={ 21 }
+                        type= "number"
+                        value={ winner }
+                    />
+
+                    <label>Player 1 Name</label>
+                    <input
+                        className="form-control"
+                        onChange={ this.handleServing }
+                        placeholder={ 5 }
+                        type= "number"
+                        value={ serving }
+                    />
+
+
                 </div>
                 
                 <button className="btn btn-primary">Save</button>
