@@ -5,13 +5,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import store from './store';
 import { Provider } from "react-redux";
-
-
-//now when you took away one, the message will tell you what else to take 
+// import { createStore } from 'redux';
 // import initial from './initial';
-// import reducer from './reducer';
+//now when you took away one, the message will tell you what else to take 
 
-// import { createStore } from "redux";
 
 //ALL WHAT IS LEFT HERE IS RENDER
 
@@ -36,30 +33,35 @@ import { Provider } from "react-redux";
 
 
 //called whenever the state changes 
-  const render = () => {
-    let state = store.getState();
+  // const render = () => {
+
+let { player1, player2, serving, winner, difference} = store.getState();
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={ store }>
+      <App 
+        player1={ player1 } 
+        player2={ player2 }
+        serving={ serving }
+        winner={ winner }
+        difference={ difference }
+
+        handlePlayer1={ () => store.dispatch( { type: "PLAYER1_SCORES" } ) } 
+        handlePlayer2={ () => store.dispatch( { type: "PLAYER2_SCORES" } ) }
+        handleReset={ () => store.dispatch( { type: "RESET" } ) }
+      />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+  // }
+
+  //we dont want it all rerendering 
+   // store.subscribe(render); // re-render when state changes
+  // render();
 
 
-
-    ReactDOM.render(
-      <React.StrictMode>
-        <Provider store={ store }>
-          <App 
-            player1={ state.player1 } 
-            player2={ state.player2 }
-            serving={ state.serving }
-            winner={ state.winner }
-            difference={ state.difference }
-
-            handlePlayer1={ () => store.dispatch( { type: "PLAYER1_SCORES" } ) } 
-            handlePlayer2={ () => store.dispatch( { type: "PLAYER2_SCORES" } ) }
-            handleReset={ () => store.dispatch( { type: "RESET" } ) }
-          />
-        </Provider>
-      </React.StrictMode>,
-      document.getElementById('root')
-    );
-  }
 
   // store.subscribe(() => {
   //   let state = store.getState();
@@ -70,8 +72,8 @@ import { Provider } from "react-redux";
   // store.dispatch( { type: "PLAYER2_SCORES" })
   
   //i am telling it to do that every time state changes 
-  store.subscribe(render); // re-render when state changes
-  render();
+  // store.subscribe(render); // re-render when state changes
+  // render();
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA

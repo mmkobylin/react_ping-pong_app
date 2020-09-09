@@ -22,7 +22,7 @@ const Player = ({
                     <div className="card-footer">
                         <button 
                           onClick= { handlePlayer }
-                          disabled= { winner !== null }
+                          disabled= { winner !== 0 }
                           className="form-control btn btn-success">+</button>
                     </div>
                 </div>

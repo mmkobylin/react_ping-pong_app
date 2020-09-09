@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "./components/Header"
 import Reset from "./components/Reset"
-import Player from "./components/Player"
-import Winner from "./components/Winner"
+import Player from "./components/Player/Player"
+import Winner from "./components/Winner/Winner"
 // import Header from "./components/Header"
 
 const App = (
