@@ -3,6 +3,7 @@ import Header from "./components/Header"
 import Player1 from "./components/Player/Player1"
 import Player2 from "./components/Player/Player2"
 import Winner from "./components/Winner"
+import WinningScore from "./components/WinningScore"
 import Reset from "./components/Reset"
 import Settings from "./components/Settings"
 

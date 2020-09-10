@@ -1,5 +1,7 @@
 import './index.css';
 import initial from './initial';
+import WinningScore from "./components/WinningScore"
+
 // import Player from './components/Player/Player';
 
 //here goes everything what went to INDEX PREVIOUSLY, ALL THE FUNCTIONS 
@@ -34,7 +36,11 @@ const alternate = state => (state.player1 === 20 && state.player2 === 20) ? 2 : 
 
 //did somone won???
 //will have to change; 
-const winning = state => state.player1 === 21 || state.player2 === 21; 
+  
+
+const winning = ( state )  => {
+  return state.player1 >= state.winningScore || state.player2 >= state.winningScore; 
+} 
 
 //who is winning? 
 const getWinner = state => state.player1 > state.player2 ? 1 : 2; 

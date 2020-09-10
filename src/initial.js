@@ -7,8 +7,8 @@ const initial = {
     winner: null,
     player1name: '',
     player2name: '',
-    winningScore: '',
-    changeServe: ''
+    winningScore: 21,
+    changeServe: 5
     };  
 
 export default initial;

@@ -39,7 +39,7 @@ class Settings extends Component {
     handleSubmit(e) {
         e.preventDefault();
         let { player1name, player2name, winningScore, changeServe } = this.state;
-        console.log(player1name);
+        
         this.props.handleSave(player1name, player2name, winningScore, changeServe) 
 
     }
