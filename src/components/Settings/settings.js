@@ -61,24 +61,23 @@ class Settings extends Component {
                     <input
                         className="form-control"
                         onChange={ this.handleWinner }
-                        placeholder={ 21 }
+                        defaultValue={ 21 }
                         type= "number"
                         value={ winner }
                     />
 
-                    <label>Player 1 Name</label>
+                    <label>Alternate Every</label>
                     <input
                         className="form-control"
                         onChange={ this.handleServing }
-                        placeholder={ 5 }
+                        defaultValue={ 5 }
                         type= "number"
                         value={ serving }
                     />
 
-
                 </div>
                 
-                <button className="btn btn-primary">Save</button>
+                <button className="btn btn-primary">Start Game</button>
             </form>
             );
         }
