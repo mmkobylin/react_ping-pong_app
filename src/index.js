@@ -6,15 +6,19 @@ import * as serviceWorker from './serviceWorker';
 import store from './store';
 import { Provider } from 'react-redux';
 
-ReactDOM.render(
-    <Provider store={ store }>
-      <App 
-        handlePlayer1={ () => store.dispatch( { type: "PLAYER1_SCORES" } ) } 
-        handlePlayer2={ () => store.dispatch( { type: "PLAYER2_SCORES" } ) }
-        // handleReset={ () => store.dispatch( { type: "RESET" } ) }
-      />
-    </Provider>, 
-  document.getElementById('root'), 
-);
+const render = () => {
+    let state = store.getState();
+ 
+    // pass current state as a prop into App component (example for the counter)
+    ReactDOM.render(
+        <Provider store={ store }>
+            <App />,
+        </Provider>,
+        document.getElementById("root")
+    );
+};
+
+store.subscribe(render); // re-render when state changes
+render(); // render when page loads using initial state
 
 serviceWorker.unregister();

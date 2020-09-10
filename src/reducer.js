@@ -33,6 +33,7 @@ const alternate = state => (state.player1 === 20 && state.player2 === 20) ? 2 : 
 //they return functions
 
 //did somone won???
+//will have to change; 
 const winning = state => state.player1 === 21 || state.player2 === 21; 
 
 //who is winning? 
@@ -47,12 +48,23 @@ const winner = state => ({
   winner: difference(state) && winning(state) ? getWinner(state) : null ,
 })
 
+const submit = ( state, { player1name, player2name, winningScore, changeServe} ) => {
+  console.log(winningScore)
+  return {
+    ...state, 
+    player1name: player1name, 
+    player2name: player2name,
+    winningScore: winningScore,
+    changeServe: changeServe
+  }
+};
+
 //dispatching the action 
 const reducer = (state, action ) => {
     switch (action.type) {
                       //keep adding functions!!!
+      case "SAVE_SETTINGS": return submit(state, action); 
       case "PLAYER_SCORES": return winner(server(playerScores(state, action)));
-      // case "PLAYER2_SCORES": return winner(server(playerScores(state)));
       case "RESET" : return initial;
       default: return state;
     }

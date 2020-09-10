@@ -4,15 +4,12 @@ import Player1 from "./components/Player/Player1"
 import Player2 from "./components/Player/Player2"
 import Winner from "./components/Winner"
 import Reset from "./components/Reset"
+import Settings from "./components/Settings"
 
-const App = (
-    {
-      handleReset,
-    }
-  ) => (
+const App = () => (
     <React.Fragment>
         <Header /> 
-
+        <Settings />
         {/* scores */}
         <div className="row mb-4">
 
@@ -24,7 +21,7 @@ const App = (
         <hr />
 
         { /* reset button */}
-        <Reset handleReset={ handleReset }/>
+        <Reset />
         
     </React.Fragment>
 );

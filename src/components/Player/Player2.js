@@ -1,6 +1,6 @@
 import { connect } from "react-redux"; 
 import Player from "./Player";
-import { handlePlayer } from "../../Actions/handlePlayer"
+import { handlePlayer } from "../../Actions/actions"
 
     // mapStateToProps - ask somebody to get you something
     const mapStateToProps = ( state ) => {
