@@ -1,9 +1,8 @@
-export const handlePlayer = ( amount ) => {
+export const handlePlayer = ( player ) => {
     return { 
-        type: "PLAYER1_SCORES",
-        type: "PLAYER2_SCORES",
-        amount: amount
+        type: "PLAYER_SCORES",
+        player: player,
     };
 }
 
-export default handlePlayer; 
+//action is just an object

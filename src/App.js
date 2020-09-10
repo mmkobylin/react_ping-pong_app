@@ -6,9 +6,7 @@ import Winner from "./components/Winner"
 import Reset from "./components/Reset"
 
 const App = (
-    { 
-      handlePlayer1,
-      handlePlayer2,
+    {
       handleReset,
     }
   ) => (
@@ -18,23 +16,11 @@ const App = (
         {/* scores */}
         <div className="row mb-4">
 
-          <Player1
-            handlePlayer={ handlePlayer1 } 
-          />
-
-          <Player2
-            handlePlayer={ handlePlayer2 } 
-          />
-
+          <Player1 />
+          <Player2 />
         </div>
-            {/* if i want if statement, i need curly brackets */}
-       
-        { /* winner message */}
-        <Winner />
-        {/* { winner ? (
-        <h2 className="alert alert-success">Player { winner } wins!</h2>
-        ) : null 
-      } */}
+
+        <Winner/>
         <hr />
 
         { /* reset button */}

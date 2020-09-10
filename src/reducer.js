@@ -1,26 +1,20 @@
 import './index.css';
 import initial from './initial';
+// import Player from './components/Player/Player';
 
-//here goes everything what went to 
-//INDEX PREVIOUSLY, ALL THE FUNCTIONS 
+//here goes everything what went to INDEX PREVIOUSLY, ALL THE FUNCTIONS 
 
   //helper function 
-  const player1scores = (state) => {
-    return {
-        ...state,
-        player1: state.player1 + 1
-    }
-  }
 
-  const player2scores = (state) => {
+  const playerScores = ( state, { player } ) => { 
     return {
-        ...state,
-        player2: state.player2 + 1
+      ...state,
+      player1: player === 1 ? state.player1 + 1 : state.player1, 
+      player2: player === 2 ? state.player2 + 1 : state.player2 
     }
   }
 
 //  The server should start to alternate every two serves if both scores get to 20
-
 
 const alternate = state => (state.player1 === 20 && state.player2 === 20) ? 2 : 5;
 
@@ -57,8 +51,8 @@ const winner = state => ({
 const reducer = (state, action ) => {
     switch (action.type) {
                       //keep adding functions!!!
-      case "PLAYER1_SCORES": return winner(server(player1scores(state)));
-      case "PLAYER2_SCORES": return winner(server(player2scores(state)));
+      case "PLAYER_SCORES": return winner(server(playerScores(state, action)));
+      // case "PLAYER2_SCORES": return winner(server(playerScores(state)));
       case "RESET" : return initial;
       default: return state;
     }
