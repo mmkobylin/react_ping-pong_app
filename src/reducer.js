@@ -1,6 +1,5 @@
 import './index.css';
 import initial from './initial';
-import WinningScore from "./components/WinningScore"
 
 // import Player from './components/Player/Player';
 

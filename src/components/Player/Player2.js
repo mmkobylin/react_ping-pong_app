@@ -8,7 +8,8 @@ import { handlePlayer } from "../../Actions/actions"
             winner: state.winner,
             serving: state.serving,
             playerScore: state.player2,
-            player: 2
+            player: 2,
+            playername: state.player2name
         }
     };
     //giving somebody something to put into store

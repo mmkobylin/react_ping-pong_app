@@ -41,9 +41,7 @@ class Settings extends Component {
         let { player1name, player2name, winningScore, changeServe } = this.state;
         
         this.props.handleSave(player1name, player2name, winningScore, changeServe) 
-
     }
-
 
     render() {
         let { player1name, player2name, winningScore, changeServe } = this.state; 

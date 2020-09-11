@@ -8,6 +8,8 @@ const mapStateToProps = ( state ) => {
         serving: state.serving,
         playerScore: state.player1,
         player: 1,
+        playername: state.player1name
+       // I need player1name PROP. 
     }
 };
 
